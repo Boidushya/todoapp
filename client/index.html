@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/favicon/site.webmanifest">
+	<title>To Do List</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="navbar">
+			<nav class="navbar navbar-light bg-light justify-content-between w-100">
+				<a class="navbar-brand pointer-event" href="/">TodoList</a>
+				<form class="form-inline">
+					<button class="btn btn-outline-danger my-2 my-sm-0" id="logout" type="submit">Logout</button>
+				</form>
+			</nav>
+		</div>
+		<div class="container" id="loading-view">
+			<div class="spinner-border text-light" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<div class="container d-none dashboard" id="dashboard-view">
+			<p class="heading font-italic">Hello <span id="name"></span>!
+			</p>
+			<div class="todo">
+				<h4 class="text-light">Your Todo List:
+				</h4>
+					<ul class="list-group bb-none" id="todo-content">
+						<li id="todo-placeholder" class="list-group-item justify-content-between align-items-center disabled">
+							Your todos will appear here
+						</li>
+					</ul>
+					<ul class="list-group my-2 bt-none">
+						<div class="input-group list-group-item d-inline-flex">
+							<input type="text" class="form-control" placeholder="New Item" aria-label="Username" id="todo-text">
+							<div class="input-group-append">
+								<button class="btn btn-outline-success" id="todo-add" type="button">Add</button>
+							</div>
+						</div>
+				</ul>
+			</div>
+		</div>
+		<div class="container d-none" id="login-view">
+			<button
+				type="button"
+				class="btn btn-light px-3"
+				id="github-btn"
+			>
+				<div id="btn-loading" class="d-none">
+					<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+					Logging in...
+				</div>
+				<div id="btn-primary">
+					<i class="bi bi-github"></i> Login with github
+				</div>
+			</button>
+		</div>
+	</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

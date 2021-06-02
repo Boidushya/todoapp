@@ -1,12 +1,12 @@
 // init
-var maxx = document.body.clientWidth;
-var maxy = document.body.clientHeight;
-var halfx = maxx / 2;
-var halfy = maxy / 2;
+var maxX = document.body.clientWidth;
+var maxY = document.body.clientHeight;
+var halfX = maxX / 2;
+var halfY = maxY / 2;
 var canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
-canvas.width = maxx;
-canvas.height = maxy;
+canvas.width = maxX;
+canvas.height = maxY;
 var context = canvas.getContext("2d");
 var dotCount = 200;
 var dots = [];
@@ -17,8 +17,8 @@ for (var i = 0; i < dotCount; i++) {
 
 // dots animation
 function render() {
-	context.fillStyle = "#000000";
-	context.fillRect(0, 0, maxx, maxy);
+	context.fillStyle = "#101010";
+	context.fillRect(0, 0, maxX, maxY);
 	for (var i = 0; i < dotCount; i++) {
 		dots[i].draw();
 		dots[i].move();
@@ -30,8 +30,8 @@ function render() {
 // @constructor
 function dot() {
 
-	this.rad_x = 2 * Math.random() * halfx + 1;
-	this.rad_y = 1.2 * Math.random() * halfy + 1;
+	this.rad_x = 2 * Math.random() * halfX + 1;
+	this.rad_y = 1.2 * Math.random() * halfY + 1;
 	this.alpha = Math.random() * 360 + 1;
 	this.speed = Math.random() * 100 < 50 ? 1 : -1;
 	this.speed *= 0.3;
@@ -44,8 +44,8 @@ function dot() {
 dot.prototype.draw = function () {
 
 	// calc polar coord to decart
-	var dx = halfx + this.rad_x * Math.cos(this.alpha / 180 * Math.PI);
-	var dy = halfy + this.rad_y * Math.sin(this.alpha / 180 * Math.PI);
+	var dx = halfX + this.rad_x * Math.cos(this.alpha / 180 * Math.PI);
+	var dy = halfY + this.rad_y * Math.sin(this.alpha / 180 * Math.PI);
 	// set color
 	context.fillStyle = "rgb(" + this.color + "," + this.color + "," + this.color + ")";
 	// draw dot

@@ -1,6 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const router = express.Router();
+require('dotenv').config()
 
 router.get("/",(req,res)=>{
 	res.send({
@@ -16,7 +17,7 @@ router.get("/socketCheck",(req,res)=>{
 
 router.get("/callback",(req,res)=>{
 	const clientId = "194ec52f484b36d8451e";
-	const clientSecret = "13024e665e8bbe9874efd96d4c15213c52cabf2a";
+	const clientSecret = process.env.CLIENT_SECRET;
 	const code = req.query.code;
 	axios.post("https://github.com/login/oauth/access_token",{
 		client_id:clientId,

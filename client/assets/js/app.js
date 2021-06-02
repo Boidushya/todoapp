@@ -163,6 +163,7 @@ const app = () => {
 	const loginBtn = document.querySelector("#github-btn");
 	const logoutBtn = document.querySelector("#logout");
 	const addBtn = document.querySelector("#todo-add");
+	const todoText = document.querySelector("#todo-text");
 	let authWindow;
 	loginBtn.addEventListener("click",()=>{
 		toggleLoading("start")
@@ -172,6 +173,12 @@ const app = () => {
 		localStorage.removeItem("user");
 		location.reload();
 	})
+	todoText.addEventListener("keyup", (event) => {
+        if (event.code === 'Enter'){
+            event.preventDefault();
+            addTodo();
+        }
+    });
 	addBtn.addEventListener("click",()=>{
 		addTodo();
 	})

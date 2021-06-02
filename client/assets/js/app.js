@@ -22,7 +22,6 @@ const init = () => {
 			if(!placeholder.classList.contains("d-none")){
 				placeholder.classList.add("d-none")
 			}
-			console.log(item)
 			let addHTML =
 				`<li id="todo-${item.id}" class="list-group-item d-flex justify-content-between align-items-center">
 					${item.value}
@@ -38,7 +37,6 @@ const deleteTodo = (id) => {
 	let content = document.querySelector("#todo-content");
 	let placeholder = document.querySelector("#todo-placeholder")
 	element.remove();
-	console.log(content.innerHTML)
 	if(content.childNodes.length === 3){
 		placeholder.classList.remove("d-none")
 	}
